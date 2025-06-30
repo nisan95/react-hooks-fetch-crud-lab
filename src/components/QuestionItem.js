@@ -33,8 +33,12 @@ function QuestionItem({ question, setQuestion }) {
       headers:{ "Content-Type": "application/json" },
 
       body:JSON.stringify({"correctIndex": parseInt(index)})
-    }).then(reponse => reponse.json())
-    fetchQuestions();
+    }).then(reponse => {
+      if(reponse.ok){
+        fetchQuestions();
+      }
+    })
+    
 
 
   }
